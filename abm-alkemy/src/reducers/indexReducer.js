@@ -1,3 +1,5 @@
+import { TYPES } from "../actions/indexActions";
+
 const initialState = {
     abm: [],
     allAbm:[],
@@ -7,14 +9,11 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
-         case "FILTER_BY_ORIGIN": {
-
-            const allRecipes = state.allAbm;
-            // const filterState = action.payload === "db" ? allRecipes[0].filter(r => r.createdInDb) : allRecipes[0].filter(r => !r.createdInDb)
+         case TYPES.GET_ABM: {
 
             return {
                 ...state,
-                // recipes: [filterState]
+                abm:action.payload
             }
 
         }
