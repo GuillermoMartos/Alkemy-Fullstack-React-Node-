@@ -3,29 +3,35 @@ const router = express.Router();
 const {Abm, User}= require('../db')
 
 router.get('/', async (req, res)=>{
-    const{price}=(req.body)
+    // const{price}=(req.body)
     
-    let prueba=await Abm.create({
-        concept:"pago auto",
-        date:new Date(),
-        amount:price,
-        type:"out"
-    })
+    // let prueba=await Abm.create({
+    //     concept:"pago auto",
+    //     date:new Date(),
+    //     amount:price,
+    //     type:"out"
+    // })
     
-    const user=await User.create({
-        name:"Juan",
-        password:"asd123"
-    })
+    // const user=await User.findCreateFind( {
+    //     where:{name:"Rob"},
+    //     defaults:{name:"Rob",
+    //     password:"asd123"},
+    // })
+
+    // const user=await User.create({
+    //     name:"Rob",
+    //     password:"asd123"
+    // })
+        
+    // await prueba.setUsers(user);
     
-    await prueba.setUsers(user);
-    
-    const rta = await User.findAll({
+    const rta = await Abm.findAll({
         where: {
-            name: "Juan"
+            type: "out"
         },
         include:{
             model:User,
-            attributes:['concept','date','amount','type'],
+            attributes:['name'],
             through:{attributes:[]}
         }
     })
