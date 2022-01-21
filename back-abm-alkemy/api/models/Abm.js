@@ -5,17 +5,19 @@ module.exports = (sequelize) => {
     "abm",
     {
       id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
+        type: DataTypes.STRING,
+        defaultValue: DataTypes.UUIDV4,
+        unique: true,
+        allowNull: false
       },
       concept: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       amount: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        type: DataTypes.DECIMAL,
+        allowNull: true,
       },
       date: {
         type: DataTypes.DATE,
