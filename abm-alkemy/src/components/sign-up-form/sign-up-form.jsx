@@ -58,10 +58,11 @@ function SignUpForm() {
         url: "http://localhost:3001/sign-up",
         data: data
       }).then((m)=>{
-        alert(m.name)
-        dispatch(setUser(m.name))
+        if(m.data.error) return alert(m.data.error)
+        else {
+          dispatch(setUser(m.data.name))
         return history.push("/home")
-        }
+        }}
         );
     }
   }
