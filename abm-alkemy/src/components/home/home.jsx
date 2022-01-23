@@ -3,6 +3,8 @@ import Footer from "../footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { getAbm } from "../../actions/indexActions";
 import { Link } from 'react-router-dom';
+import './home.css'
+import PresentacionalPreview from '../presentacional-preview/presentacional-preview'
 
 
 function Home() {
@@ -21,19 +23,19 @@ function Home() {
       <div className="App">
         <ul>
           <h3>Últimos 10 movimientos</h3>
+          <button class="toLog"><Link to="/create"> Create new ABM </Link></button>
           {abm?.map((abm) => {
             return (
-              <div class="container">
-                <li key={abm.id}>
-                  <p> Concepto: {abm.concept}</p>
-                  <p>Monto: $ {abm.amount}</p>
-                  <p> Fecha: {abm.date}</p>
-                </li>
-                <button class="toLog"><Link to="/create"> Create new ABM </Link></button>
-              </div>
+              <PresentacionalPreview
+              concept={abm.concept}
+              amount={abm.amount}
+              date={abm.date}
+              type={abm.type}
+            />
             );
           })}
         </ul>
+        <button class="toLog"><Link to="/create"> Create new ABM </Link></button>
       </div>
       <Footer></Footer>
     </div>
