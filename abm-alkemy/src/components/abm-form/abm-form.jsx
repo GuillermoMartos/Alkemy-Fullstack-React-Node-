@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import PresentacionalPreview from "../presentacional-preview/presentacional-preview";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import "./abm-form.css";
 

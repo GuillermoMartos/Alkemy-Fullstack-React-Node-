@@ -1,0 +1,59 @@
+.Log{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+}
+
+.link{
+  color:whitesmoke
+}
+
+.logo{
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 5px;
+}
+
+.nav{
+  background: linear-gradient(205deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.input{
+  margin-left: 5px;
+  margin-top: 18px;
+  margin-right: 10px;
+}
+
+.signIn {
+  font-size: 16px;
+  color: rgb(59, 59, 59);
+}
+
+.form {
+  display: inline-flex;
+  width: 30%;
+  height: 50%;
+  align-items: start;
+  justify-items: center;
+  display: inline-flex;
+  margin-left: 10px;
+}
+
+.btn_sub{
+  margin-left: 6px;
+  cursor: pointer;
+  box-shadow: red;
+  background: #7333c5;
+  border-radius: 45px;
+}
+
+.landingPage__button_text {
+  color: #fcfcfc;
+  font-size: 14px;
+}
+
+
+
+
