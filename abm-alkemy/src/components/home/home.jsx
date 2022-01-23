@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Footer from "../footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import { getAbm } from "../../actions/indexActions";
+import { Link } from 'react-router-dom';
+
 
 function Home() {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ function Home() {
                   <p>Monto: $ {abm.amount}</p>
                   <p> Fecha: {abm.date}</p>
                 </li>
+                <button class="toLog"><Link to="/create"> Create new ABM </Link></button>
               </div>
             );
           })}

@@ -34,6 +34,7 @@ const { Abm, User } = sequelize.models;
 
 // // Aca vendrian las relaciones
 Abm.belongsToMany(User, {through:'user_abm'})
+User.belongsToMany(Abm, {through:'user_abm'})
 // Recipe.belongsToMany(Diet, {through:'recipes_diet'});
 // Diet.belongsToMany(Recipe, {through:'recipes_diet'});
 

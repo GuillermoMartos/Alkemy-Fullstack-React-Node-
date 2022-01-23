@@ -2,42 +2,59 @@ const express = require('express');
 const router = express.Router();
 const {Abm, User}= require('../db')
 
-router.get('/', async (req, res)=>{
-    // const{price}=(req.body)
+router.get('/:user', async (req, res)=>{
+    const {user} = req.params.user
+    console.log("soy el user:")
+    console.log(user)
     
-    // let prueba=await Abm.create({
-    //     concept:"pago auto",
-    //     date:new Date(),
-    //     amount:price,
-    //     type:"out"
-    // })
+    try{
+        const rta = await User.findAll({
+            where: {
+                name: user
+            },
+            include:{
+                model:Abm,
+                attributes:['concept', 'amount', 'date', 'type'],
+                through:{attributes:[]}
+            }
+        })
     
-    // const user=await User.findCreateFind( {
-    //     where:{name:"Rob"},
-    //     defaults:{name:"Rob",
-    //     password:"asd123"},
-    // })
+       
+        return res.json(rta)
+    } 
+    catch(error){
+        return res.json({error:error})
+    }
+})
 
-    // const user=await User.create({
-    //     name:"Rob",
-    //     password:"asd123"
-    // })
-        
-    // await prueba.setUsers(user);
+
+router.post('/create', async (req, res)=>{
+    const {user, concept, amount, date, type} = req.body
     
-    const rta = await Abm.findAll({
-        where: {
-            type: "out"
-        },
-        include:{
-            model:User,
-            attributes:['name'],
-            through:{attributes:[]}
+    try{
+        await User.create({
+            name:user,
+            password:user
+        })
+
+        const findUser=await User.findOne({
+        where:{
+            name:user
         }
-    })
+        })
+        
+        const newAbm = await Abm.create({concept, amount, date, type,})
+
+        await findUser.setAbms(newAbm);
+        return res.json({res:"success"})
+    }
+    catch(error){
+        console.log(error)
+        return res.status(505).json({res:"fail", txt:error})
+    }
 
    
-    res.json(rta)
+    
 })
 
 module.exports = router ;
