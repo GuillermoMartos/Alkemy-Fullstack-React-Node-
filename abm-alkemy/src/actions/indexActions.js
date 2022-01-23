@@ -10,7 +10,7 @@ export const getAbm = function (user) {
     return function(dispatch) {
         axios.get(`http://localhost:3001/:?user=${user}`)
         .then((abm)=>{
-            dispatch({ type: TYPES.GET_ABM, payload: abm.data }); 
+            dispatch({ type: TYPES.GET_ABM, payload: abm.data[0].abms.map(m=> m) }); 
         })
         
       };
