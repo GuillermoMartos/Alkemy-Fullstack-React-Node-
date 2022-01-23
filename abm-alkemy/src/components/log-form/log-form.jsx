@@ -1,11 +1,17 @@
 import "./log-form.css";
 import React, { useState } from "react";
+import axios from 'axios';
+import { useDispatch } from "react-redux";
+import {setUser} from '../../actions/indexActions';
+import { useHistory } from "react-router-dom";
 
 function LogForm() {
   var [log, setLog] = useState({
     user: "",
     password: "",
   });
+  const dispatch=useDispatch();
+  const history=useHistory();
 
   function handleChange(e) {
     const value = e.target.value;
@@ -18,11 +24,12 @@ function LogForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     await axios({
-      method: "GET",
+      method: "POST",
       url: "http://localhost:3001/log-in",
-      data: data
+      data: log
     }).then((m)=>{
-      dispatch(setUser(m.name))
+      alert(m.data.name)
+      dispatch(setUser(m.data.name))
       return history.push("/home")
       }
       );

@@ -15,9 +15,13 @@ export const setUser= function(user){
 
 //getAbms by user logged
 export const getAbm = function (user) {
+    alert (user)
     return function(dispatch) {
-        axios.get(`http://localhost:3001/:?user=${user}`)
-        .then((abm)=>{
+        axios({
+            method: "POST",
+            url: "http://localhost:3001/user",
+            data: user,
+          }).then((abm)=>{
             dispatch({ type: TYPES.GET_ABM, payload: abm.data[0].abms.map(m=> m) }); 
         })
         

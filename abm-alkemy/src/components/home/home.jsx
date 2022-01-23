@@ -10,7 +10,7 @@ function Home() {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(getAbm(user));
+    dispatch(getAbm({user:user}));
   }, []);
 
   const abm = useSelector((state) => state.abm);

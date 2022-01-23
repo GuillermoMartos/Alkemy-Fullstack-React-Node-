@@ -54,10 +54,11 @@ function SignUpForm() {
     if (data.password === data.repeatPass) {
       
       await axios({
-        method: "GET",
+        method: "POST",
         url: "http://localhost:3001/sign-up",
         data: data
       }).then((m)=>{
+        alert(m.name)
         dispatch(setUser(m.name))
         return history.push("/home")
         }
