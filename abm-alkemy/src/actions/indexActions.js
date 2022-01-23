@@ -1,11 +1,19 @@
 import axios from 'axios'
 
 export const TYPES={
+    SET_USER:"SET_USER",
     GET_ABM:"GET_ABM",
 }
-//NOMBRES CONSTANTES PARA NO ERRARLE EN ESAS COSITAS :))
 
-//Log&Coins
+//set logged User
+export const setUser= function(user){
+    return function(dispatch){
+        dispatch({type:TYPES.SET_USER, payload:user})
+    }
+}
+
+
+//getAbms by user logged
 export const getAbm = function (user) {
     return function(dispatch) {
         axios.get(`http://localhost:3001/:?user=${user}`)
@@ -16,4 +24,5 @@ export const getAbm = function (user) {
       };
      
 }
+
 

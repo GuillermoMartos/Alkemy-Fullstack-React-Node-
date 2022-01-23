@@ -6,8 +6,7 @@ import axios from "axios";
 import "./abm-form.css";
 
 function ABM_Form() {
-  // const user = useSelector((state) => state.user);
-  const user = "Rob";
+  const user = useSelector((state) => state.user);
 
   const [field, setField] = useState({
     concept: "",
@@ -27,7 +26,6 @@ function ABM_Form() {
     const isValid = validator(field.amount);
     if (isValid) {
       setuploading(true);
-      alert(field.user)
       axios({
         method: "POST",
         url: "http://localhost:3001/create",

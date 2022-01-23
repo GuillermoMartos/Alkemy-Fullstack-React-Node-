@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(getAbm("Rob"));
+    dispatch(getAbm(user));
   }, []);
 
   const abm = useSelector((state) => state.abm);

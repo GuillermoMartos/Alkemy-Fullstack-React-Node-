@@ -2,9 +2,8 @@ import "./log-form.css";
 import React, { useState } from "react";
 
 function LogForm() {
-
   var [log, setLog] = useState({
-    email: "",
+    user: "",
     password: "",
   });
 
@@ -18,46 +17,61 @@ function LogForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    alert(log.email + log.password)
+    await axios({
+      method: "GET",
+      url: "http://localhost:3001/log-in",
+      data: data
+    }).then((m)=>{
+      dispatch(setUser(m.name))
+      return history.push("/home")
+      }
+      );
   }
 
   return (
-    <div className="Log">
-      <h2>Log In</h2>
-      <form className="form-child" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>
-            <h4>Email</h4>
-          </label>
-        </div>
-        <input
-          className="landingPage__input"
-          type="email"
-          name="email"
-          value={log.email}
-          id="myInput"
-          onChange={(e) => handleChange(e)}
-          required
-          autoComplete="off"
+    <div class="nav">
+         
+        <img
+          class="logo"
+          alt="logo"
+          src="https://logodix.com/logo/1996489.jpg"
+          width="90px"
         />
-        <div className="form-group">
+     
+      <div className="Log">
+        <h2> 🧮 Alkemy ABM 🧮</h2>
+        <form class="form" onSubmit={handleSubmit}>
+          <label>
+            <h4>User</h4>
+          </label>
+
+          <input
+            class="input"
+            name="user"
+            value={log.user}
+            id="myInput"
+            onChange={(e) => handleChange(e)}
+            required
+            autoComplete="off"
+          />
+
           <label>
             <h4>Password</h4>
           </label>
-        </div>
-        <input
-          className="landingPage__input"
-          type="password"
-          name="password"
-          value={log.password}
-          onChange={(e) => handleChange(e)}
-          required
-          autoComplete="off"
-        />
-        <button className="landingPage__button_login" type="submit">
-          <h4 className="landingPage__button_text">LOG IN</h4>
-        </button>
-      </form>
+
+          <input
+            class="input"
+            name="password"
+            value={log.password}
+            onChange={(e) => handleChange(e)}
+            required
+            autoComplete="off"
+          />
+          <button class="btn_sub" type="submit">
+            <h4 class="landingPage__button_text">LOG IN</h4>
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
