@@ -1,0 +1,7 @@
+.btn-pag{
+    cursor:pointer
+}
+
+.btn-pag:hover{
+    background-color: violet;
+}

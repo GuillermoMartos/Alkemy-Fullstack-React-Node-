@@ -78,7 +78,7 @@ router.post("/user", async (req, res) => {
       },
       include: {
         model: Abm,
-        attributes: ["concept", "amount", "date", "type"],
+        attributes: ["concept", "amount", "date", "type", "id"],
         through: { attributes: [] },
       },
     });

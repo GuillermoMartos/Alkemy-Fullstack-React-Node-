@@ -6,6 +6,7 @@ import axios from "axios";
 import "./abm-form.css";
 
 function ABM_Form() {
+  
   const user = useSelector((state) => state.user);
 
   const [field, setField] = useState({
@@ -24,7 +25,7 @@ function ABM_Form() {
   const handleSubmit = function (e) {
     e.preventDefault();
     const isValid = validator(field.amount);
-    if (isValid) {
+    if (isValid && field.type) {
       setuploading(true);
       axios({
         method: "POST",
@@ -74,10 +75,10 @@ function ABM_Form() {
   return (
     <div>
       <h3>🧮🖩 New Register 🖩🧮</h3>
-      <div className="container">
+      <div class="create">
         <form onSubmit={handleSubmit}>
-          <div>
-            <label className="labelForm">Concept (*) </label>
+          <div class="form-input">
+            <label>Concept (*) </label>
             <input
               placeholder="add new concept..."
               name="concept"
@@ -87,11 +88,11 @@ function ABM_Form() {
             />
           </div>
 
-          <div>
-            <label className="labelForm">Amount (*) </label>
+          <div class="form-input">
+            <label>Amount (*) </label>
             <div class="in-line">
               <p>$</p>
-              <textarea
+              <input
                 placeholder="add amount here..."
                 name="amount"
                 value={field.amount}
@@ -101,11 +102,11 @@ function ABM_Form() {
             </div>
           </div>
           {!amountError ? null : (
-            <span className="errorForm">{amountError}</span>
+            <span>{amountError}</span>
           )}
 
-          <div>
-            <label className="labelForm">Date (*)</label>
+          <div class="form-input">
+            <label>Date (*)</label>
             <input
               type="date"
               value={field.date}
@@ -115,20 +116,20 @@ function ABM_Form() {
             />
           </div>
 
-          <div>
-            <label className="labelForm">Type (*)</label>
+          <div class="form-input">
+            <label>Type (*)</label>
             <select required name="type" value={field.type} onChange={handleChange}>
-              <option disabled selected>
+              <option disabled>
                 Select type
               </option>
-              <option>in</option>
+              <option selected>in</option>
               <option>out</option>
             </select>
           </div>
 
           {/* 
           <div>
-            <label className="labelForm">URL Image Loader &#128194;</label>
+            <label>URL Image Loader &#128194;</label>
             <input
               placeholder="paste your URL recipe image here..."
               name="image"
@@ -136,26 +137,26 @@ function ABM_Form() {
               onChange={handleChange}
             />
           </div>
-          {!errorURL ? null : <span className="errorForm">{errorURL}</span>} */}
+          {!errorURL ? null : <span>{errorURL}</span>} */}
 
           {!uploading && (
-            <button className="button" type="submit">
+            <button type="submit">
               SUBMIT my new ABM register!
             </button>
           )}
           {uploading && (
-            <button className="button" disabled>
+            <button disabled>
               ADDING my new ABM register...
             </button>
           )}
         </form>
-        <h3 className="back">
+        <h3>
           <Link to="/home">Back to Home 🧮</Link>
         </h3>
       </div>
 
-      <div className="divRecetasShow">
-        <p className="preview">CREATED PREVIEW</p>
+      <div class="create">
+        <p>CREATED PREVIEW</p>
         <PresentacionalPreview
           concept={field.concept}
           amount={field.amount}

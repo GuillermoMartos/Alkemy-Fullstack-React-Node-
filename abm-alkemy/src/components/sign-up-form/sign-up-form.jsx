@@ -23,9 +23,10 @@ function SignUpForm() {
 
   const inputValidate = (data) => {
     const errors = {};
+    const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
    
-    if (!data.name) {
-      errors.name = "Full Name is required!";
+    if (regex.test(data.name) === false) {
+      errors.name = "E-mail is required! Format not valid";
       setHabilitado(false);
     }
     if (!data.password) {
@@ -76,7 +77,7 @@ function SignUpForm() {
             <input
               className="fullname"
               type="text"
-              placeholder="Full Name..."
+              placeholder="Your user e-mail..."
               required
               name="name"
               value={data.name}

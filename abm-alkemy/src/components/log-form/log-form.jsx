@@ -49,7 +49,7 @@ function LogForm() {
         <h2> 🧮 Alkemy ABM 🧮</h2>
         <form class="form" onSubmit={handleSubmit}>
           <label>
-            <h4>User</h4>
+            <h4>Mail</h4>
           </label>
 
           <input

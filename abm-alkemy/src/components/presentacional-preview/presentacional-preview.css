@@ -1,0 +1,18 @@
+.card{
+    border-radius: 20px;
+    justify-self: center;
+    background-color: whitesmoke;
+    padding: 5px 5px;    
+}
+
+.container-card{
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    width: 30%;
+    padding: 10px 10px;
+    border-radius: 20px;
+    margin-inline-start: 5px;
+    margin-bottom: 10px;
+    background-image: url("https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXMlMjBkb2xsYXJ8ZW58MHx8MHx8&w=1000&q=80");
+}
