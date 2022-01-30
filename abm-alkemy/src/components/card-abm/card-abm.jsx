@@ -2,6 +2,7 @@ import React from "react";
 import "./card-abm.css";
 import {deleteAbmAction } from "../../actions/indexActions";
 import {useDispatch} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 function CardAbm({ concept, amount, date, type, id, category }) {
   const dispatch = useDispatch();
@@ -29,9 +30,12 @@ function CardAbm({ concept, amount, date, type, id, category }) {
           <button class="btn-del" onClick={() => deleteAbm(id)}>
             DELETE
           </button>
+          
+          <Link to={`/edit/${id}`}>
           <button class="btn-del" onClick={() => editAbm(id)}>
             EDIT
           </button>
+          </Link>
         </div>
       </div>
     </div>

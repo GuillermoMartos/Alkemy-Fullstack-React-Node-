@@ -1,7 +1,7 @@
 import React from "react";
 import "./presentacional-preview.css";
 
-function PresentacionalPreview({ concept, amount, date, type }) {
+function PresentacionalPreview({ concept, amount, date, type, category }) {
   return (
     <div class="container-card">
       <div class="card">
@@ -10,6 +10,7 @@ function PresentacionalPreview({ concept, amount, date, type }) {
         {!amount ? null : <h2>Amount: $ {amount}</h2>}
 
         {!date ? null : <h4>Date: {date}</h4>}
+        {!category ? null : <h4>Category: {category}</h4>}
 
         {!type ? null : <h3>Type: {type}</h3>}
       </div>

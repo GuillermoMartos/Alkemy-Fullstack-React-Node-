@@ -5,6 +5,7 @@ import AbmForm from "./components/abm-form/abm-form";
 import SignUpForm from "./components/sign-up-form/sign-up-form.jsx";
 import { useSelector } from "react-redux";
 import Nav from "./components/nav/nav";
+import Editor from "./components/editor/editor";
 
 function App() {
   document.title = `ABM Alkemy 🧮`;
@@ -31,6 +32,7 @@ function App() {
       <Route exact path="/" component={SignUpForm} /> */}
       <Route exact path="/home" component={Home} />
       <Route exact path="/create" component={AbmForm} />
+      <Route exact path="/edit/:id" component={Editor} />
     </BrowserRouter>
   );
 }
