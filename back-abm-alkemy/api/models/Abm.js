@@ -27,6 +27,10 @@ module.exports = (sequelize) => {
         type: DataTypes.ENUM("in", "out"),
         allowNull: false,
       },
+      category:{
+        type: DataTypes.STRING,
+        allowNull: true,
+      }
     },
     { timestamps: true, createdAt: true, updatedAt: true }
   );

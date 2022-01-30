@@ -6,10 +6,12 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import Paginado from "../paginado/paginado";
 import CardAbm from "../card-abm/card-abm";
+import Balance from "../balance/balance";
 
 function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const balance = useSelector((state) => state.balance);
 
   //SECTOR PAGINADO
   const abms = useSelector((state) => state.abm);
@@ -29,7 +31,6 @@ function Home() {
     dispatch(getAbm({ user: user }));
   }, []);
 
-  const abm = useSelector((state) => state.abm);
 
   //TYPE FILTER
   const handleFilterType = (e) => {
@@ -38,16 +39,17 @@ function Home() {
 
   return (
     <div>
+      <Balance win={balance.in} spent={balance.out}></Balance>
       <div>
         <ul>
           <div class="header">
             <h3>Últimos 10 movimientos</h3>
 
-            <button class="toLog">
               <Link to="/create">
+            <button class="toLog">
                 <h4 class="txt-btn">Create new ABM</h4>{" "}
-              </Link>
             </button>
+              </Link>
             <div>
               <h4 class="filter-cont">Filter ABMs</h4>
               <select class="filter" onChange={(e) => handleFilterType(e)}>
@@ -67,16 +69,17 @@ function Home() {
                 date={abm.date}
                 type={abm.type}
                 id={abm.id}
+                category={abm.category}
               />
             );
           })}
         </ul>
         <div class="foot">
-          <button class="toLog">
             <Link to="/create">
+          <button class="toLog">
               <h4 class="txt-btn">Create new ABM</h4>{" "}
-            </Link>
           </button>
+            </Link>
           <Paginado
             contentsPerPage={abmPerPage}
             allAbms={abms?.length}

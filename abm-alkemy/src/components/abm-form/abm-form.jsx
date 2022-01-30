@@ -14,8 +14,9 @@ function ABM_Form() {
     amount: "",
     date: "",
     type: "",
-    user: user,
+    user: user
   });
+  const [cat_array] = useState(["Alimentación","Vivienda","Transporte","Salud y autocuidado","Entretenimiento y diversión","Vestuario","Educación","Comunicaciones"]);
   const [amountError, setAmountError] = useState("");
   const [uploading, setuploading] = useState(false);
   const regDec = /^[0-9]\d*(\.\d+)?$/;
@@ -24,8 +25,9 @@ function ABM_Form() {
 
   const handleSubmit = function (e) {
     e.preventDefault();
-    const isValid = validator(field.amount);
-    if (isValid && field.type) {
+    if(field.type==="") return alert("please set Type (in/out)")
+    const isValid = submitValidator(field.amount);
+    if (isValid) {
       setuploading(true);
       axios({
         method: "POST",
@@ -37,6 +39,8 @@ function ABM_Form() {
           amount: "",
           date: "",
           type: "",
+          user:user,
+          category: ""
         });
 
         if (res.statusText === "OK") {
@@ -49,7 +53,20 @@ function ABM_Form() {
         }
       });
     }
+
   };
+
+  function submitValidator(value){
+    if (!regDec.test(value)) {
+      setAmountError(
+        "Amount must be decimals/intgers (i.e., 76.4, 12, 99.9...)"
+      );
+      return false;
+    }
+  
+  setAmountError("");
+  return true;
+  }
 
   function validator(name, value) {
     if (name === "amount") {
@@ -74,8 +91,8 @@ function ABM_Form() {
 
   return (
     <div>
-      <h3>🧮🖩 New Register 🖩🧮</h3>
       <div class="create">
+      <h3 class="register-title">🧮🖩 New Register 🖩🧮</h3>
         <form onSubmit={handleSubmit}>
           <div class="form-input">
             <label>Concept (*) </label>
@@ -118,34 +135,34 @@ function ABM_Form() {
 
           <div class="form-input">
             <label>Type (*)</label>
-            <select required name="type" value={field.type} onChange={handleChange}>
-              <option disabled>
+            <select name="type" value={field.type} onChange={handleChange}>
+              <option selected>
                 Select type
               </option>
-              <option selected>in</option>
-              <option>out</option>
+              <option value="in">in</option>
+              <option value="out">out</option>
+            </select>
+          </div>
+          
+          <div class="form-input">
+            <label>Category</label>
+            <select name="category" value={field.category} onChange={handleChange}>
+              <option selected>
+                Select type
+              </option>
+              {cat_array && cat_array?.map(cat=>{
+                 return <option value={cat}>{cat}</option>
+              })}
             </select>
           </div>
 
-          {/* 
-          <div>
-            <label>URL Image Loader &#128194;</label>
-            <input
-              placeholder="paste your URL recipe image here..."
-              name="image"
-              value={campos.image}
-              onChange={handleChange}
-            />
-          </div>
-          {!errorURL ? null : <span>{errorURL}</span>} */}
-
           {!uploading && (
-            <button type="submit">
+            <button class="submit-btn" type="submit">
               SUBMIT my new ABM register!
             </button>
           )}
           {uploading && (
-            <button disabled>
+            <button class="charge-btn" disabled>
               ADDING my new ABM register...
             </button>
           )}

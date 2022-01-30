@@ -17,7 +17,7 @@
 }
 
 .nav{
-  background: linear-gradient(205deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(205deg, rgb(70, 208, 233) 0%, rgb(12, 77, 138) 35%, rgb(77, 170, 147) 100%);
 }
 
 .input{
@@ -45,12 +45,12 @@
   margin-left: 6px;
   cursor: pointer;
   box-shadow: red;
-  background: #7333c5;
+  background: #daa29d;
   border-radius: 45px;
 }
 
 .landingPage__button_text {
-  color: #fcfcfc;
+  color: #000000;
   font-size: 14px;
 }
 

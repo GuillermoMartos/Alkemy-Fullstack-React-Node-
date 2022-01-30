@@ -3,11 +3,11 @@ import "./card-abm.css";
 import {deleteAbmAction } from "../../actions/indexActions";
 import {useDispatch} from 'react-redux'
 
-function CardAbm({ concept, amount, date, type, id }) {
+function CardAbm({ concept, amount, date, type, id, category }) {
   const dispatch = useDispatch();
   //CARDS ACTIONS: DELETE Y EDIT
   const deleteAbm = function (id) {
-    deleteAbmAction(id);
+    dispatch(deleteAbmAction(id));
   };
   const editAbm = function (id) {
 
@@ -21,6 +21,8 @@ function CardAbm({ concept, amount, date, type, id }) {
         {!amount ? null : <h2>Amount: $ {amount}</h2>}
 
         {!date ? null : <h4>Date: {date}</h4>}
+
+        {!category ? null : <h4>Category: {category}</h4>}
 
         {!type ? null : <h3>Type: {type}</h3>}
         <div class="actions">

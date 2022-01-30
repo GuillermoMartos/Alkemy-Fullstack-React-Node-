@@ -2,14 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { Abm, User } = require("../db");
 
+
 router.post("/create", async (req, res) => {
-  const { user, concept, amount, date, type } = req.body;
+  const { user, concept, amount, date, type, category } = req.body;
 
   try {
-    // await User.create({
-    //     name:user,
-    //     password:user
-    // })
 
     const findUser = await User.findOne({
       where: {
@@ -17,9 +14,29 @@ router.post("/create", async (req, res) => {
       },
     });
 
-    const newAbm = await Abm.create({ concept, amount, date, type });
+    const newAbm = await Abm.create({ concept, amount, date, type, category });
 
     await newAbm.setUsers(findUser);
+    return res.json({ res: "success" });
+  } catch (error) {
+    console.log(error);
+    return res.status(505).json({ res: "fail", txt: error });
+  }
+});
+
+
+router.post("/delete", async (req, res) => {
+  const {id}  = req.body;
+
+  try {
+
+    const findAbm = await Abm.findOne({
+      where: {
+        id: id,
+      },
+    });
+    await findAbm.destroy();
+
     return res.json({ res: "success" });
   } catch (error) {
     console.log(error);
@@ -45,6 +62,7 @@ router.post("/log-in", async (req, res) => {
     return res.status(200).json({ user: "" });
   }
 });
+
 
 router.post("/sign-up", async (req, res) => {
   const { password, name } = req.body;
@@ -78,7 +96,7 @@ router.post("/user", async (req, res) => {
       },
       include: {
         model: Abm,
-        attributes: ["concept", "amount", "date", "type", "id"],
+        attributes: ["concept", "amount", "date", "type", "id", "category"],
         through: { attributes: [] },
       },
     });

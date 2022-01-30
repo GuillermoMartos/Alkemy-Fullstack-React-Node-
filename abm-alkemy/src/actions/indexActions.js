@@ -4,7 +4,8 @@ export const TYPES={
     SET_USER:"SET_USER",
     GET_ABM:"GET_ABM",
     FILTER_BY_TYPE:"FILTER_BY_TYPE",
-    DELETE_ABM:"DELETE_ABM"
+    DELETE_ABM:"DELETE_ABM",
+    BALANCE_ABM:"BALANCE_ABM"
 }
 
 //set logged User
@@ -15,14 +16,20 @@ export const setUser= function(user){
 }
 
 //DELETE_ABM
-export const deleteAbmAction= function(card){
-    alert("despacha?")
+export const deleteAbmAction= function(id){
+
     return function(dispatch){
-        dispatch({type:"DELETE_ABM", payload:card})
-    }
+        axios({
+            method: "POST",
+            url: "http://localhost:3001/delete",
+            data: {id:id}
+          }).then((abm)=>{
+              if(abm.data.res==="success") return dispatch({ type: TYPES.DELETE_ABM, payload: id }); 
+              else return alert("failure to delete selected card, retry later")
+          })
+    };
 }
-
-
+ 
 
 //getAbms by user logged
 export const getAbm = function (user) {

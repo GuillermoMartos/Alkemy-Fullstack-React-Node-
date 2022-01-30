@@ -7,10 +7,11 @@
 
 .container-card{
     position: relative;
+    text-align: center;
     display: inline-block;
     align-items: center;
     width: 30%;
-    padding: 10px 10px;
+    padding: 5px 5px;
     border-radius: 20px;
     margin-inline-start: 5px;
     margin-bottom: 10px;
@@ -18,19 +19,22 @@
 }
 
 .actions{
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 45px;
+    margin-left: 45px
 }
 
 .btn-del{
-    margin-left: 60%;
+    margin:3px;
     cursor: pointer;
-    background: #f10707;
-    border-radius: 20px;
+    background: #c85a1a;
+    border-radius: 8px;
     border: none;
     color: white;
-    padding: 7px;
+    padding: 3px;
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:whitesmoke;
 }
