@@ -5,7 +5,7 @@ export const TYPES={
     GET_ABM:"GET_ABM",
     FILTER_BY_TYPE:"FILTER_BY_TYPE",
     DELETE_ABM:"DELETE_ABM",
-    BALANCE_ABM:"BALANCE_ABM"
+    BALANCE_ABM:"BALANCE_ABM",
 }
 
 //set logged User
@@ -29,7 +29,7 @@ export const deleteAbmAction= function(id){
           })
     };
 }
- 
+
 
 //getAbms by user logged
 export const getAbm = function (user) {

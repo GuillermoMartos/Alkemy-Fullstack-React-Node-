@@ -108,4 +108,41 @@ router.post("/user", async (req, res) => {
   }
 });
 
+
+router.post("/get-edit", async (req, res) => {
+  const { id } = req.body;
+  console.log(id)
+
+  try {
+    const rta = await Abm.findOne({
+      where: {
+        id: id,
+      }
+    });
+
+    
+    return res.status(200).json(rta);
+  } catch (error) {
+    console.log(error)
+    return res.status(505).json(error);
+  }
+});
+
+
+router.post("/set-edit", async (req, res) => {
+  const { concept, amount, date, category, id } = req.body;
+  console.log(concept, amount, date, category, id)
+  
+  try {
+    await Abm.update({amount: amount, concept:concept, date:date, category:category},
+      {where: {id: id}})
+
+    
+    return res.status(200).json({txt:"success"});
+  } catch (error) {
+    console.log("hola"+error)
+    return res.status(505).json(error);
+  }
+});
+
 module.exports = router;

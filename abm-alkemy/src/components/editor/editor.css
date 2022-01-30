@@ -1,0 +1,41 @@
+.in-line {
+  display: inline-flex;
+}
+
+.create {
+  margin-left: 45%;
+}
+
+.errorForm {
+  background-color: whitesmoke;
+  color: #ff0000;
+  font-size: 8pt;
+}
+
+.form-input {
+  margin: 10px;
+  font-size: 23px;
+}
+
+
+.submit-btn{
+    margin-left: 6px;
+  cursor: pointer;
+  background:rgb(10, 95, 29);
+  border-radius: 40px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  color:whitesmoke;
+}
+.charge-btn{
+    margin-left: 6px;
+  cursor: pointer;
+  background:rgb(138, 136, 127);
+  border-radius: 40px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  color:whitesmoke;
+}
+

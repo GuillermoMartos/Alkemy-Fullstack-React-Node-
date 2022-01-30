@@ -66,7 +66,7 @@ function Home() {
               <CardAbm
                 concept={abm.concept}
                 amount={abm.amount}
-                date={abm.date}
+                date={abm.date.slice(0,10)}
                 type={abm.type}
                 id={abm.id}
                 category={abm.category}
