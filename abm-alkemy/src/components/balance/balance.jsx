@@ -24,7 +24,7 @@ function Balance({ win, spent }) {
       )} */}
       <h4 class="text">In: $ {win}</h4>
       <h4 class="text">Out: $ {spent}</h4>
-      <h3 class="text">Total: $ {win-spent}</h3>
+      <h3 class="text">Total: $ {(win-spent).toFixed(2)}</h3>
 
     </div>
   );

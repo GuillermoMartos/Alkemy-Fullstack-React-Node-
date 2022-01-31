@@ -46,13 +46,13 @@ router.post("/delete", async (req, res) => {
 
 router.post("/log-in", async (req, res) => {
   const { user, password } = req.body;
-  console.log("soy el user pass:");
-  console.log(user + password);
+  
 
   try {
     const rta = await User.findOne({
       where: {
         name: user,
+        password:password
       },
     });
 
@@ -66,8 +66,7 @@ router.post("/log-in", async (req, res) => {
 
 router.post("/sign-up", async (req, res) => {
   const { password, name } = req.body;
-  console.log("soy el password y name:" + name);
-  console.log(password);
+ 
 
   try {
     const find = await User.findOne({
@@ -100,8 +99,6 @@ router.post("/user", async (req, res) => {
         through: { attributes: [] },
       },
     });
-
-    // return res.status(200).json(rta[0].abms)
     return res.status(200).json(rta);
   } catch (error) {
     return res.status(505).json(error);

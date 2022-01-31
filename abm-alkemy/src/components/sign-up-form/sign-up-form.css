@@ -9,6 +9,11 @@ input:focus, textarea:focus{
     justify-content: center;
     align-items: center;
 }
+
+.tutorial{
+    margin-left:10px
+}
+
 .container{
     background-color: white;
     width: 70%;

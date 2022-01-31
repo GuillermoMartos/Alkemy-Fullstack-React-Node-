@@ -28,7 +28,7 @@ function LogForm() {
       url: "http://localhost:3001/log-in",
       data: log
     }).then((m)=>{
-      if (m.data===null) return alert(`no user "${log.user}" founded`)
+      if (m.data===null) return alert(`no user "${log.user}" founded or pass incorrect, try again please`)
       dispatch(setUser(m.data.name))
       return history.push("/home")
       }
