@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-image: url("https://cutewallpaper.org/21/calculator-background/Free-image-of-Calculator-key-background.jpg");
+
 }
 
 .blocks{
@@ -40,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+

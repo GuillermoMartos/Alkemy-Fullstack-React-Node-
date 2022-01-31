@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
-import { getAbm, filterAbmByType } from "../../actions/indexActions";
+import { getAbm, filterAbmByType, filterAbmByCategory } from "../../actions/indexActions";
 import { Link } from "react-router-dom";
 import "./home.css";
 import Paginado from "../paginado/paginado";
@@ -12,11 +12,13 @@ function Home() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const balance = useSelector((state) => state.balance);
+  const [cat_array] = useState(["Alimentación","Vivienda","Transporte","Salud y autocuidado","Entretenimiento y diversión","Vestuario","Educación","Comunicaciones"]);
+
 
   //SECTOR PAGINADO
   const abms = useSelector((state) => state.abm);
   const [currentPage, setcurrentPage] = useState(1);
-  const [abmPerPage, setabmPerPage] = useState(10);
+  const [abmPerPage] = useState(10);
   const indexOfLastAbmToShow = currentPage * abmPerPage;
   const indexOfFirstToShow = indexOfLastAbmToShow - abmPerPage;
   const currentAbmsToShow = abms?.slice(
@@ -37,13 +39,18 @@ function Home() {
     dispatch(filterAbmByType(e.target.value));
   };
 
+  //TYPE FILTER
+  const handleFilterCategory = (e) => {
+    dispatch(filterAbmByCategory(e.target.value));
+  };
+
   return (
-    <div>
+    <div class="body-home">
       <Balance win={balance.in} spent={balance.out}></Balance>
       <div>
-        <ul>
+    
+            
           <div class="header">
-            <h3>Últimos 10 movimientos</h3>
 
               <Link to="/create">
             <button class="toLog">
@@ -51,16 +58,30 @@ function Home() {
             </button>
               </Link>
             <div>
-              <h4 class="filter-cont">Filter ABMs</h4>
+              <h4 class="filter-cont">Type ABMs</h4>
               <select class="filter" onChange={(e) => handleFilterType(e)}>
                 <option disabled selected>
                   Filter by Type
                 </option>
-                <option value="in">in</option>
-                <option value="out">out</option>
+                <option value="in">In</option>
+                <option value="out">Out</option>
+                <option value="quit-filter">Quit Filter</option>
+              </select>
+            </div>
+            <div>
+              <h4 class="filter-cont">Category ABMs</h4>
+              <select class="filter" onChange={(e) => handleFilterCategory(e)}>
+                <option disabled selected>
+                  Filter by Category
+                </option>
+                {cat_array && cat_array.map(cat=>{
+                   return <option value={cat}>{cat}</option>
+                })}
+                 <option value="quit-filter">Quit Filter</option>
               </select>
             </div>
           </div>
+          <h3 class="text">Últimos 10 movimientos</h3>
           {currentAbmsToShow?.map((abm) => {
             return (
               <CardAbm
@@ -73,7 +94,7 @@ function Home() {
               />
             );
           })}
-        </ul>
+        
         <div class="foot">
             <Link to="/create">
           <button class="toLog">

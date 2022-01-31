@@ -1,11 +1,24 @@
 .in-line {
   display: inline-flex;
 }
-
+/* 
 .create {
-  margin-left: 45%;
-}
+  margin-left: 45%;  
+} */
 
+.parent-create{
+  display:flex;
+  flex-direction: column;
+  padding-bottom: 7%;
+    background-image: url("https://previews.123rf.com/images/vectorlab/vectorlab2111/vectorlab211100581/177776869-business-character-holding-huge-calculator-in-hands-isolated-on-white-background-man-working-countin.jpg");
+  
+}
+.text-abm{
+  background-color: whitesmoke;
+  margin-left: 3%;
+  text-align: center;
+  width: 24%;
+}
 .errorForm {
   background-color: whitesmoke;
   color: #ff0000;
@@ -21,10 +34,9 @@
 .submit-btn{
     margin-left: 6px;
   cursor: pointer;
-  background:rgb(10, 95, 29);
-  border-radius: 40px;
+  background:rgb(132, 185, 143);
+  border-radius: 20px;
   padding: 5px;
-  text-align: center;
   font-size: 16px;
   color:whitesmoke;
 }

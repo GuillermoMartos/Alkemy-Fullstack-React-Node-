@@ -4,6 +4,7 @@ export const TYPES={
     SET_USER:"SET_USER",
     GET_ABM:"GET_ABM",
     FILTER_BY_TYPE:"FILTER_BY_TYPE",
+    FILTER_BY_CATEGORY:"FILTER_BY_CATEGORY",
     DELETE_ABM:"DELETE_ABM",
     BALANCE_ABM:"BALANCE_ABM",
 }
@@ -50,6 +51,13 @@ export const getAbm = function (user) {
 export const filterAbmByType= function (type){
     return function(dispatch){
         dispatch({type:TYPES.FILTER_BY_TYPE, payload:type})
+    }
+}
+
+//Filter Abms by Category
+export const filterAbmByCategory= function (category){
+    return function(dispatch){
+        dispatch({type:TYPES.FILTER_BY_CATEGORY, payload:category})
     }
 }
 

@@ -10,7 +10,7 @@ function Balance({ win, spent }) {
   }
   return (
     <div class="bal-container">
-      <h1>🧮🖩 Balance 🖩🧮</h1>
+      <h1 class="text">🧮🖩 Balance 🖩🧮</h1>
       {/* {win && win.length >= 2 ? (
         <h4>In: $ {win.reduce((a, b) => a + b)}</h4>
       ) : (
@@ -22,9 +22,9 @@ function Balance({ win, spent }) {
       ) : (
         <h4>Out: $ {spent}</h4>
       )} */}
-      <h4>In: $ {win}</h4>
-      <h4>Out: $ {spent}</h4>
-      <h3>Total: $ {win-spent}</h3>
+      <h4 class="text">In: $ {win}</h4>
+      <h4 class="text">Out: $ {spent}</h4>
+      <h3 class="text">Total: $ {win-spent}</h3>
 
     </div>
   );

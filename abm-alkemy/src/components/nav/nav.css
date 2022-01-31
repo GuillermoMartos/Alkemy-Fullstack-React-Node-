@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3px;
+  margin-top: 1px;
 }
 
 .link{
@@ -20,38 +20,25 @@
   background: linear-gradient(205deg, rgb(70, 208, 233) 0%, rgb(12, 77, 138) 35%, rgb(77, 170, 147) 100%);
 }
 
-.input{
-  margin-left: 5px;
-  margin-top: 18px;
-  margin-right: 10px;
-}
 
 .signIn {
-  font-size: 16px;
+  font-size: 10px;
   color: rgb(59, 59, 59);
 }
 
-.form {
-  display: inline-flex;
-  width: 30%;
-  height: 50%;
-  align-items: start;
-  justify-items: center;
-  display: inline-flex;
-  margin-left: 10px;
-}
+
 
 .btn_sub{
-  margin-left: 6px;
+  margin-left: 67vmax;
   cursor: pointer;
   box-shadow: red;
   background: #daa29d;
-  border-radius: 45px;
 }
 
 .landingPage__button_text {
   color: #000000;
-  font-size: 14px;
+  font-size: 13px;
+  width: 50px;
 }
 
 

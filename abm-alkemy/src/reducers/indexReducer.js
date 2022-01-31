@@ -50,7 +50,29 @@ const rootReducer = (state = initialState, action) => {
     case TYPES.FILTER_BY_TYPE: {
       const search = action.payload;
       const allAbms = state.allAbm;
+      if (search==="quit-filter"){
+        return {
+          ...state,
+          abm: allAbms,
+        };
+      }
+      
       const filterState = allAbms.filter((r) => r.type === search);
+      return {
+        ...state,
+        abm: filterState,
+      };
+    }
+    case TYPES.FILTER_BY_CATEGORY: {
+      const search = action.payload;
+      const allAbms = state.allAbm;
+      if (search==="quit-filter"){
+        return {
+          ...state,
+          abm: allAbms,
+        };
+      }
+      const filterState = allAbms.filter((r) => r.category === search);
       return {
         ...state,
         abm: filterState,

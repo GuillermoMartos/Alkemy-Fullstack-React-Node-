@@ -20,8 +20,8 @@ function Nav() {
         <img
           class="logo"
           alt="logo"
-          src="https://logodix.com/logo/1996489.jpg"
-          width="90px"
+          src="https://s3-symbol-logo.tradingview.com/abm-industries--600.png"
+          width="62px"
         />
       </Link>
 

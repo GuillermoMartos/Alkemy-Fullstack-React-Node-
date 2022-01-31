@@ -41,12 +41,12 @@ function LogForm() {
         <img
           class="logo"
           alt="logo"
-          src="https://logodix.com/logo/1996489.jpg"
-          width="90px"
+          src="https://s3-symbol-logo.tradingview.com/abm-industries--600.png"
+          width="62px"
         />
      
       <div className="Log">
-        <h2> 🧮 Alkemy ABM 🧮</h2>
+        <h2>  Alkemy ABM 🧮</h2>
         <form class="form" onSubmit={handleSubmit}>
           <label>
             <h4>Mail</h4>
@@ -74,7 +74,7 @@ function LogForm() {
             required
             autoComplete="off"
           />
-          <button class="btn_sub" type="submit">
+          <button class="hola" type="submit">
             <h4 class="landingPage__button_text">LOG IN</h4>
           </button>
         </form>

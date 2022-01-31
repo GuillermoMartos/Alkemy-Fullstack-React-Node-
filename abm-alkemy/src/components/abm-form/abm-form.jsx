@@ -91,7 +91,7 @@ function ABM_Form() {
   };
 
   return (
-    <div>
+    <div class="parent-create">
       <div class="create">
       <h3 class="register-title">🧮🖩 New Register 🖩🧮</h3>
         <form onSubmit={handleSubmit}>
@@ -168,13 +168,13 @@ function ABM_Form() {
             </button>
           )}
         </form>
-        <h3>
-          <Link to="/home">Back to Home 🧮</Link>
+        <h3 class="text-abm">
+          <Link to="/home"  style={{ textDecoration: 'none' }}>Back to Home 🧮</Link>
         </h3>
       </div>
 
       <div class="create">
-        <p>CREATED PREVIEW</p>
+        <p class="text-abm">PREVIEW</p>
         <PresentacionalPreview
           concept={field.concept}
           amount={field.amount}

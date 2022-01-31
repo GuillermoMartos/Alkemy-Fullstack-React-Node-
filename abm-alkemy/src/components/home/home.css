@@ -9,14 +9,26 @@
   color:whitesmoke;
 }
 
+.text{
+    background-color: whitesmoke ;
+    text-align: center;
+}
+
+.body-home{
+    background-image: url("https://cutewallpaper.org/21/calculator-background/Free-image-of-Calculator-key-background.jpg");
+}
+
 .filter{
     font-size: 16px;
+    background: #c85a1a;
     margin-left: 10%;
 }
 
 .filter-cont{
     font-size: 15px;
     margin-left: 35px;
+    background: #c85a1a;
+    text-align: center;
     
 }
 

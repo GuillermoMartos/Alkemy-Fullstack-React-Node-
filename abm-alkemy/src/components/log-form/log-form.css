@@ -33,17 +33,17 @@
   margin-left: 10px;
 }
 
-.btn_sub{
+.hola{
   margin-left: 6px;
   cursor: pointer;
   box-shadow: red;
-  background: #7333c5;
+  background: #9805bd;
   border-radius: 45px;
 }
 
-.landingPage__button_text {
-  color: #fcfcfc;
-  font-size: 14px;
+.txt-bt {
+  color: aqua;
+  font-size: 16px;
 }
 
 

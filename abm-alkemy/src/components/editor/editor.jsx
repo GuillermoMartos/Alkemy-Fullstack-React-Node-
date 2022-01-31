@@ -22,7 +22,8 @@ function Editor() {
         type,
         user: user,
         category,
-        id:id
+        id:id,
+        temp:concept
       });
     });
   }, []);
@@ -113,9 +114,12 @@ function Editor() {
   };
 
   return (
-    <div>
+    <div class="parent-container">
       <div class="create">
-        <h3 class="register-title">🧮🖩 New Register 🖩🧮</h3>
+        {field && field.temp ?
+        <h3 class="register-title">🧮 Edit Register "{field.temp}" 🧮</h3>:
+        <h3 class="register-title">🧮 Edit Register 🧮</h3>
+        }
         <form onSubmit={handleSubmit}>
           <div class="form-input">
             <label>Concept (*) </label>
@@ -181,13 +185,13 @@ function Editor() {
             </button>
           )}
         </form>
-        <h3>
+        <h3 class="text-abm">
           <Link to="/home">Back to Home 🧮</Link>
         </h3>
       </div>
 
       <div class="create">
-        <p>CREATED PREVIEW</p>
+        <p class="text-abm">PREVIEW</p>
         <PresentacionalPreview
           concept={field.concept}
           amount={field.amount}

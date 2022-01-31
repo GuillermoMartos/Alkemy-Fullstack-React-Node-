@@ -1,5 +1,6 @@
 .btn-pag{
-    cursor:pointer
+    cursor:pointer;
+    font-size:xx-large;
 }
 
 .btn-pag:hover{
